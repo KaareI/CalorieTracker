@@ -17,7 +17,6 @@ const ItemCtrl = (function(){
         ],
         total: 0
     }
-
     return {
         getItems: function(){
             return data.items
@@ -27,15 +26,12 @@ const ItemCtrl = (function(){
         }
     }
 })();
-
 // UI Controller
 const UICtrl = (function(){
-    console.log('UICtrl')
     return {
         populateItemList: function (items){
             // create html content
             let html = '';
-
             // parse data and create list items html
             items.forEach(function (item){
                 html += `<li class="collection-item" id="item-${item.id}">
@@ -47,12 +43,11 @@ const UICtrl = (function(){
     });
 
             // insert list items
-            document.quertySelector("#item-list").innerHTML = html;
+            document.quertySelector(UISelectors.itemList).innerHTML = html;
 
         }
     }
 })();
-
 // App Controller
 const App = (function (ItemCtrl, UICtrl){
     return {
@@ -65,6 +60,5 @@ const App = (function (ItemCtrl, UICtrl){
     }
 }
 }) (ItemCtrl, UICtrl);
-
 // Initialize App
 App.init()
